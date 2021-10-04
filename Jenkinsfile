@@ -15,6 +15,6 @@ pipeline {
     Name = 'jdk'
   }
   parameters {
-    string(name: 'Name', defaultValue: 'whoever you are', description: 'Who should I say hi to?')
+    string(name: 'jdk1', defaultValue: 'whoever you are', description: 'Who should I say hi to?')
   }
 }
