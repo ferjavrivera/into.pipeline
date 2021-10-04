@@ -1,6 +1,6 @@
 pipeline {
   agent {
-    label 'jdk16'
+    label 'jdk11'
   }
   stages {
     stage('Say hello') {
