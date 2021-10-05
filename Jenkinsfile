@@ -3,38 +3,49 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        sh 'echo "Un paso de una sola linea"'
+        sh 'echo "un paso sencillo de una linea"'
         sh '''
-                  echo "Pasos Multimedia"
-                  cd /tmp
-                  ls -lrt
-                  '''
+        echo "pasos multilinea"
+        cd /tmp
+        ls -lrt
+        '''
       }
     }
 
-    stage('test: integración calidad') {
+    stage('test: integracion y calidad') {
       steps {
-        sh 'echo "Un paso de integración"'
+        sh 'echo "paso test"'
       }
     }
 
     stage('test: funcional') {
       steps {
-        sh 'echo "Un paso de funcional"'
+        sh 'echo "paso test" '
       }
     }
 
-    stage('Aprobación') {
+    stage('test: aprobacion') {
       steps {
-        sh 'echo "Un paso de Aprobación"'
+        sh 'echo "paso test" '
       }
     }
 
     stage('deploy:prod') {
+      input {
+        message 'presiona ok para continuar'
+        submitter 'user1,user2'
+        parameters {
+          string(name: 'username', defaultValue: 'user', description: 'nombre del usuario que esta dando ok')
+        }
+      }
       steps {
-        sh 'echo "Un paso de deploy"'
+        sh 'echo "a produccion " '
+        echo "User: ${username} dijo que ok"
       }
     }
 
+  }
+  environment {
+    OUTPUT_PATH = './tmp'
   }
 }
