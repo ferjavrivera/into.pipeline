@@ -11,7 +11,7 @@ pipeline {
 
         stage('b') {
           steps {
-            echo 'Test en Linux'
+            echo 'Test en Windos'
           }
         }
 
