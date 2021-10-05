@@ -65,4 +65,19 @@ pipeline {
   environment {
     OUTPUT_PATH = './tmp'
   }
+  post {
+    always {
+      echo 'Un paso de A'
+    }
+
+    aborted {
+      echo 'Un paso de Abor'
+    }
+
+    failure {
+      echo 'Un paso de Abor'
+      mail(to: 'ferjavrivera@gmail.com', subject: 'error', body: 'cuerpo')
+    }
+
+  }
 }
