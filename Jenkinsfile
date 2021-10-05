@@ -33,7 +33,8 @@ pipeline {
       steps {
         sh 'echo "paso test"'
         sh 'pwd'
-        sh 'miscript.sh'
+        sh 'chmod -xr ./miscript.sh'
+        sh './miscript.sh'
       }
     }
 
